@@ -2,6 +2,10 @@ pipeline {
 
     agent any
 
+    tools {
+            maven 'Maven 3'  // Nom de l'installation Maven configurée
+        }
+
     stages {
 
         stage('Git Checkout') {
