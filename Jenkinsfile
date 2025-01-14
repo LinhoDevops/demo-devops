@@ -4,7 +4,7 @@ pipeline {
 
     tools {
             maven 'Maven 3'  // Nom de l'installation Maven configurée
-            sonar 'SonarQube Scanner'  // Nom de l'installation Maven configurée
+            sonarScanner 'SonarQube Scanner'  // Nom de l'installation Maven configurée
 
         }
 
