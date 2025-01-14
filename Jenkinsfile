@@ -4,6 +4,7 @@ pipeline {
 
     tools {
             maven 'Maven 3'  // Nom de l'installation Maven configurée
+            sonar 'SonarQube Scanner'  // Nom de l'installation Maven configurée
 
         }
 
@@ -46,7 +47,7 @@ pipeline {
 
                         script{
 
-                            withSonarQubeEnv(credentialsId: 'sonar-api') {
+                            withSonarQubeEnv(credentialsId: 'sonar-api-key') {
 
                                 sh 'mvn clean package sonar:sonar'
                             }
