@@ -4,7 +4,7 @@ pipeline {
 
     tools {
             maven 'Maven 3'  // Nom de l'installation Maven configurée
-             sonarQube 'SonarQube'
+            sonarQube 'SonarQube'
         }
 
     stages {
