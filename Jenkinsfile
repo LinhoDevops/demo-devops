@@ -69,7 +69,7 @@ pipeline {
                                       type: 'jar']],
                                 credentialsId: 'nexus-auth',
                                 groupId: 'com.linho',
-                                nexusUrl: 'localhost:8018',
+                                nexusUrl: '172.29.80.1:8018',
                                  nexusVersion: 'nexus3',
                                   protocol: 'http',
                                   repository: 'nexus-releases-maven',
