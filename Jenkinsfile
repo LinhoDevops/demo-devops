@@ -1,19 +1,16 @@
 pipeline {
-
     agent any
 
     tools {
-            maven 'Maven 3' , // Nom de l'installation Maven configurée
-            sonar 'SonarQube'
-        }
+        maven 'Maven 3'  // Nom de l'installation Maven configurée
+        sonar 'SonarQube'  // Nom de l'installation SonarQube configurée
+    }
 
     stages {
-
         stage('Git Checkout') {
             steps {
                 script {
                     git branch: 'main', url: 'https://github.com/LinhoDevops/demo-devops.git'
-
                 }
             }
         }
@@ -39,22 +36,14 @@ pipeline {
             }
         }
 
-        //
-        stage('Static code analysis'){
-
-                    steps{
-
-                        script{
-
-                            withSonarQubeEnv(credentialsId: 'sonar-api') {
-
-                                sh 'mvn clean package sonar:sonar'
-                            }
-                           }
-
-                        }
+        stage('Static code analysis') {
+            steps {
+                script {
+                    withSonarQubeEnv(credentialsId: 'sonar-api') {
+                        sh 'mvn clean package sonar:sonar'
                     }
-        //
-
+                }
+            }
+        }
     }
 }
