@@ -3,8 +3,11 @@ pipeline {
 
     tools {
         maven 'Maven 3'  // Nom de l'installation Maven configurée
-        sonar 'SonarQube'  // Nom de l'installation SonarQube configurée
     }
+
+    tools {
+            sonar 'SonarQube'  // Nom de l'installation SonarQube configurée
+        }
 
     stages {
         stage('Git Checkout') {
