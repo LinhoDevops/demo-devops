@@ -56,13 +56,24 @@ pipeline {
                     }
         //
 
-        stage('Quality Gate Status'){
+        stage('Nexus repository'){
 
                         steps{
 
                             script{
 
-                               waitForQualityGate abortPipeline: false, credentialsId: 'sonar-api-key'
+                               nexusArtifactUploader artifacts: [
+                               [    artifactId: 'demo-devops-app',
+                                    classifier: '',
+                                     file: 'target/demo-devops-app-1.0.0.jar',
+                                      type: 'jar']]
+                               , credentialsId: 'nexus-auth',
+                                groupId: 'com.linho',
+                                nexusUrl: 'localhost:8018',
+                                 nexusVersion: 'nexus3',
+                                  protocol: 'http'
+                                  , repository: 'nexus-releases-maven',
+                                   version: '1.0.0'
                             }
                         }
                     }
